@@ -78,3 +78,44 @@ func (n *Node) Heigth() int {
 	}
 	return heightRigth + 1
 }
+
+func (n *Node) Smallest() int {
+	if n == nil {
+		panic("Btree empty")
+	}
+
+	v := n
+	for v.Left != nil {
+		v = v.Left
+	}
+
+	return v.Value
+}
+
+func (n *Node) Greatest() int {
+	if n == nil {
+		panic("Btree empty")
+	}
+
+	v := n
+	for v.Right != nil {
+		v = v.Right
+	}
+
+	return v.Value
+}
+
+// // EhBST verifica se a árvore é uma árvore binária de busca
+// func (n *Nodo) EhBST(min, max *int) bool {
+// 	if n == nil {
+// 		return true // Uma árvore vazia é uma BST
+// 	}
+
+// 	// Verifica se o valor do nó atual está fora dos limites permitidos
+// 	if (min != nil && n.Valor <= *min) || (max != nil && n.Valor >= *max) {
+// 		return false
+// 	}
+
+// 	// Recursivamente verifica as subárvores com limites atualizados
+// 	return n.Esquerdo.EhBST(min, &n.Valor) && n.Direito.EhBST(&n.Valor, max)
+// }

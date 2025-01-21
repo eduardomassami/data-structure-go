@@ -20,10 +20,16 @@ func main() {
 	fmt.Println("Árvore original em ordem:")
 	root.PrintInOrder(root, 0)
 
+	heigth := root.Heigth()
+	fmt.Println("Altura de {}", heigth)
+
+	smallest := root.Smallest()
+	fmt.Println("Menor: {}", smallest)
+
+	greatest := root.Greatest()
+	fmt.Println("Maior: {}", greatest)
+
 	fmt.Println("Árvore invertida:")
 	root.InvertBTree()
 	root.PrintInOrder(root, 0)
-
-	heigth := root.Heigth()
-	fmt.Println("Altura de {}", heigth)
 }
