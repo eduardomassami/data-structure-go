@@ -105,17 +105,14 @@ func (n *Node) Greatest() int {
 	return v.Value
 }
 
-// // EhBST verifica se a árvore é uma árvore binária de busca
-// func (n *Nodo) EhBST(min, max *int) bool {
-// 	if n == nil {
-// 		return true // Uma árvore vazia é uma BST
-// 	}
+func (n *Node) IsBST(min, max *int) bool {
+  if n == nil {
+    return true
+  }
 
-// 	// Verifica se o valor do nó atual está fora dos limites permitidos
-// 	if (min != nil && n.Valor <= *min) || (max != nil && n.Valor >= *max) {
-// 		return false
-// 	}
+  if (min != nil && n.Value <= *min) || (max != nil && n.Value >= *max) {
+    return false
+  }
 
-// 	// Recursivamente verifica as subárvores com limites atualizados
-// 	return n.Esquerdo.EhBST(min, &n.Valor) && n.Direito.EhBST(&n.Valor, max)
-// }
+  return n.Left.IsBST(min, &n.Value) && n.Right.IsBST(&n.Value, max)
+}
